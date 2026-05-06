@@ -1,3 +1,124 @@
 body {
-  background-color: aquamarine;
+  background-color: #1c1c1c;
+  font-family: "Inter", sans-serif;
+}
+
+/* LAYOUT */
+
+main {
+  box-sizing: border-box;
+  max-width: 550px;
+  width: 100%;
+  background-color: #fffdfe;
+  margin: 0 auto;
+}
+
+form {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.75em 1em;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+
+/* User Color Choice Form */
+
+input[type="color"] {
+  box-sizing: border-box;
+  width: 50px;
+  height: 35px;
+  background-color: #e5e5e5;
+  padding: 4px 5px;
+  border: 0.5px solid #d1d5db;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: 0.5px solid #313131;
+}
+
+select {
+  width: 312px;
+  height: 42px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: white;
+  color: #111827;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 8px 14px;
+}
+
+select,
+::picker(select) {
+}
+
+::picker-icon {
+  color: #9ca3af;
+  background-color: black;
+  width: 1rem;
+}
+
+.color-btn {
+  box-sizing: border-box;
+  width: 123px;
+  height: 42px;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 14px 10px;
+  color: #374151;
+  font-size: 0.75rem;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+/* Colors Section */
+.color-container {
+  display: flex;
+}
+.color {
+  height: 425px;
+  max-width: 110px;
+  width: 100%;
+}
+
+#color-one {
+  background-color: #f55a5a;
+}
+#color-two {
+  background-color: #2b283a;
+}
+#color-three {
+  background-color: #fbf3ab;
+}
+#color-four {
+  background-color: #aad1b6;
+}
+#color-five {
+  background-color: #a626d3;
+}
+
+/* HEX Color Footer */
+
+.hex-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 46px;
+}
+
+.color-hex {
+  width: 55px;
+  height: 25px;
+  font-size: 0.75rem;
+  color: #2b283a;
 }
