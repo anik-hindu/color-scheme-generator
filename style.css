@@ -82,7 +82,12 @@ select,
 }
 
 /* Colors Section */
-.color-container {
+
+.colors {
+  padding: 1em;
+}
+
+.colors-container {
   display: flex;
 }
 .color {
