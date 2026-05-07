@@ -1,8 +1,27 @@
 const colorForm = document.getElementById("color-choice-form");
 const getColorBtn = document.getElementById("get-color-btn");
 const colorApiScheme = "https://www.thecolorapi.com/scheme";
+let colorsData = {
+  colorOne: "#f55a5a",
+  colorTwo: "#2b283a",
+  colorThree: "#fbf3ab",
+  colorFour: "#aad1b6",
+  colorFive: "#a626d3",
+};
 
 getColorBtn.addEventListener("click", getColor);
+document.addEventListener("click", (e) => {
+  if (Object.hasOwn(colorsData, e.target.id)) {
+    copyToClipBoard(colorsData[e.target.id]);
+  } else if (e.target.dataset.hex) {
+    copyToClipBoard(e.target.dataset.hex);
+  }
+});
+
+function copyToClipBoard(value) {
+  navigator.clipboard.writeText(value);
+  alert("Copied the hex value: " + value);
+}
 
 function getColor(e) {
   e.preventDefault();
@@ -13,7 +32,7 @@ function getColor(e) {
   fetch(`${colorApiScheme}?hex=${hexValue}&mode=${colorMode}&count=5`)
     .then((response) => response.json())
     .then((data) => {
-      const colorsData = {
+      colorsData = {
         colorOne: data.colors[0].hex.value,
         colorTwo: data.colors[1].hex.value,
         colorThree: data.colors[2].hex.value,
@@ -30,10 +49,12 @@ function renderColor(colorsObj) {
   }
 
   document.getElementById("hex-value").innerHTML = `
-    <p class="color-hex">${colorsObj.colorOne}</p>
-    <p class="color-hex">${colorsObj.colorTwo}</p>
-    <p class="color-hex">${colorsObj.colorThree}</p>
-    <p class="color-hex">${colorsObj.colorFour}</p>
-    <p class="color-hex">${colorsObj.colorFive}</p>
+    <p class="color-hex" data-hex="${colorsObj.colorOne}">${colorsObj.colorOne}</p>
+    <p class="color-hex" data-hex="${colorsObj.colorTwo}">${colorsObj.colorTwo}</p>
+    <p class="color-hex" data-hex="${colorsObj.colorThree}">${colorsObj.colorThree}</p>
+    <p class="color-hex" data-hex="${colorsObj.colorFour}">${colorsObj.colorFour}</p>
+    <p class="color-hex" data-hex="${colorsObj.colorFive}">${colorsObj.colorFive}</p>
   `;
 }
+
+renderColor(colorsData);

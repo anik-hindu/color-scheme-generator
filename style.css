@@ -91,34 +91,18 @@ select,
   width: 100%;
 }
 
-#colorOne {
-  background-color: #f55a5a;
-}
-#colorTwo {
-  background-color: #2b283a;
-}
-#colorThree {
-  background-color: #fbf3ab;
-}
-#colorFour {
-  background-color: #aad1b6;
-}
-#colorFive {
-  background-color: #a626d3;
-}
-
 /* HEX Color Footer */
 
 .hex-footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 46px;
 }
 
 .color-hex {
   width: 55px;
   height: 25px;
   font-size: 0.75rem;
+  line-height: 2;
   color: #2b283a;
 }
